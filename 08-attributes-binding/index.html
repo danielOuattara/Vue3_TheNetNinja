@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS 3 course 8 TNN</title>
+</head>
+
+<body>
+    <div id="app">
+        <a v-bind:href="url">web site A</a>
+        <a :href="url">web site B</a>
+
+        <ul>
+            <li v-for="book in books">
+                <img :src="book.img" :alt="book.title + ' ' + book.author">
+                <h2> {{book.title}}</h2>
+                <p> by {{book.author}}</p>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"> </script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    url: "https://www.w3schools.com/js/default.asp",
+                    books: [
+                        {title:'name of the wind', author:'patick rothuss', img: './assets/1.jpg', isFav: true},
+                        {title:'ladys', author:'Mr. Mousso', img: './assets/2.jpg', isFav: false},
+                        {title:'wind of the sun', author:'sun yui tché', img: './assets/"".jpg', isFav: true},
+                    ]
+                }
+            },
+
+            methods: {
+                showPersons() {
+                    return this.show = !this.show;
+                }
+            },
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

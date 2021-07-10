@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS 3 course 9 dynamic classes TNN</title>
+    <style>
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: rgb(255, 199, 199);
+            margin: 3rem auto;
+            padding: 2rem;
+            width: auto;
+        }
+        img {
+            max-width: 40%;
+            margin: auto;
+            display: block;
+            margin-right: 2rem;
+            
+        }
+        .fav {
+            border: 3px solid green;
+
+            background-color: rgb(199, 255, 199);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <button @click="togglingFavs"> Toggle Favs</button>
+        <ul>
+            <li v-for="book, index in books" :key="index" :class="{fav:book.isFav}" @click="switchOneIsFav(book)">
+                <img :src="book.img" :alt="book.title + ' ' + book.author">
+                <h2> {{book.title}}</h2>
+                <p> by {{book.author}}</p>
+            </li>
+        </ul>
+
+        <hr><hr>
+
+        <ul>
+            <li v-for="book, index in filteredBooks" :key="index" :class="{fav:book.isFav}" @click="switchOneIsFav(book)">
+                <img :src="book.img" :alt="book.title + ' ' + book.author">
+                <h2> {{book.title}}</h2>
+                <p> by {{book.author}}</p>
+            </li>
+        </ul>
+
+    </div> 
+
+    <script src="https://unpkg.com/vue@next"> </script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    url: "https://www.w3schools.com/js/default.asp",
+                    books: [
+                        {title:'name of the wind', author:'patick rothuss', img: './assets/1.jpg', isFav: true},
+                        {title:'ladys', author:'Mr. Mousso', img: './assets/2.jpg', isFav: false},
+                        {title:'wind of the sun', author:'sun yui tché', img: './assets/3.jpg', isFav: true},
+                    ]
+                }
+            },
+
+            methods: {
+                togglingFavs() {
+                    this.books.map( book => {
+                        return book.isFav = !book.isFav 
+                    })
+                },
+                switchIsFav() {
+                    this.books.map( book => {
+                    return book.isFav = !book.isFav
+                    })
+                },
+                switchOneIsFav(book) {
+                    book.isFav = !book.isFav;
+                }
+            },
+
+            computed: {
+                filteredBooks() {  // output is a new array
+                    return this.books.filter((book) => book.isFav)
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

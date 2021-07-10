@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS 3 course 7 Outputting Lists TNN</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="show=!show">Show /Hide persons direct attributes: </button>
+        <button @click="showPersons"> method:
+            <span v-if="!show">Show persons</span>
+            <span v-else>Hide persons</span>
+        </button>
+
+        <p>{{show}}</p>
+
+        <ul v-if="show">
+            <li v-for="person, index in persons" :key='index'> {{person}}</li>
+        </ul>
+
+        <ul v-show="show">
+            <li v-for="person in persons"> {{person}}</li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"> </script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    age: 37,
+                    children: 2,
+                    title: "The King in the north",
+                    persons: ["John", "Henry", "Lewis", "Danny Boy"],
+                    newTitle: "",
+                    show: true,
+                }
+            },
+
+            methods: {
+                showPersons() {
+                    return this.show = !this.show;
+                }
+            },
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
