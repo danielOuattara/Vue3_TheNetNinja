@@ -11,7 +11,8 @@
 .backdrop {
     position: fixed;
     top: 0;
-    background: rgba(0, 0, 0, 0.6);
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
     width: 100vw;
     height: 100vh;
 }
