@@ -1,5 +1,5 @@
 <template>
-    <div class="backdrop" ref= "backdrop" @click="handleBackdrop">
+    <div class="backdrop" ref="backdrop" @click="handleBackdrop">
         <div class="modal">
             <h1>Modal title</h1>
             <span>&times</span>
