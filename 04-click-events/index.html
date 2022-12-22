@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VueJS 3 course 2 TNN</title>
-</head>
-<body>
-    <div id="app">
-        <!-- <ul>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="https://unpkg.com/vue@next"> </script> -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>VueJS 3 course 2 TNN</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- <ul>
             <li v-for="person in persons"> {{person}}</li>
         </ul> -->
-        
-        <button @click="age+=2">Increment age</button>
-        <button @click="age-=2">Decrement age</button>
-        <button @click="incrementValue">Increment value</button>
-        <button @click="changeTitle('John')">change Title</button>
-        <p>{{ age }}</p>
-        <h2>{{title}}</h2>
-        <label for="new-title">Enter a title : </label>
-        <input type="text" name='new-title' v-model="newTitle" id="title"/>
-        <p>{{newTitle}}</p>
-    </div>
 
-    <script src="https://unpkg.com/vue@next"> </script>
+            <button v-on:click="age+=2">Increment age</button>
+            <button v-on:click="age=0">age to Zero</button>
+            <button @click="age-=2">Decrement age</button>
+            <button @click="incrementValue">Increment value</button>
+            <button @click="changeTitle('John')">change Title</button>
+            <p>{{ age }}</p>
+            <h2>{{title}}</h2>
+            <label for="new-title">Enter a title : </label>
+            <input type="text" name='new-title' v-model="newTitle" id="title" />
+            <p>{{newTitle}}</p>
+        </div>
 
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    age: 37,
-                    children: 2,
-                    title: "The King in the north",
-                    persons: ["John", "Henry", "Lewis","Danny Boy"],
-                    newTitle:""
-                }
-            },
-
-            methods: {
-                incrementValue() {
-                    return this.age++
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        age: 37,
+                        children: 2,
+                        title: "The King in the north",
+                        persons: ["John", "Henry", "Lewis", "Danny Boy"],
+                        newTitle: ""
+                    }
                 },
 
-                changeTitle(arg){
-                    return this.title= arg;
-                },
-            },
-        });
+                methods: {
+                    incrementValue() {
+                        return this.age++
+                    },
 
-        app.mount('#app');
-    </script>
-</body>
+                    changeTitle(arg) {
+                        return this.title = arg;
+                    },
+                },
+            });
+
+            app.mount('#app');
+        </script>
+    </body>
 
 </html>

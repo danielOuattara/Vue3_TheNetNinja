@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VueJS 3 course 2 TNN</title>
-</head>
-<body>
-    <div id="app">
-        <p>{{ age }}</p>
-        <p>{{ children }}</p>
-        <p>{{ title}}</p>
-        <ul>
-            <li v-for="person in persons"> {{person}}</li>
-        </ul>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="https://unpkg.com/vue@next"> </script> -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>VueJS 3 course 2 TNN</title>
+    </head>
 
-    <script src="https://unpkg.com/vue@next"> </script>
+    <body>
+        <div id="app">
+            <p>{{ age }}</p>
+            <p>{{ children }}</p>
+            <p>{{ title}}</p>
+            <ul>
+                <li v-for="person in persons"> {{person}}</li>
+            </ul>
+        </div>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        age: 37,
+                        children: 2,
+                        title: "The King in the north",
+                        persons: ["John", "Henry", "Lewis", "Danny Boy"]
 
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    age: 37,
-                    children: 2,
-                    title: "The King in the north",
-                    persons: ["John", "Henry", "Lewis","Danny Boy"]
-
+                    }
                 }
-            }
-        });
+            });
 
-        app.mount('#app');
-    </script>
-</body>
+            app.mount('#app');
+        </script>
+    </body>
 
 </html>

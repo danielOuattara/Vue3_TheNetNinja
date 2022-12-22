@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VueJS 3 course 2 TNN</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VueJS 3 course 2 TNN</title>
+        <!-- <script src="https://unpkg.com/vue@next"> </script> -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
 
-<body>
+    <body>
 
-    <div id="app">
-        <p>{{ age }}</p>
-        <p>{{ children }}</p>
-        <p>{{ title}}</p>
-        <p v-for="person in persons"> {{person}}</p>
+        <div id="app">
+            <h1>Stand alone Vue </h1>
+            <h2>I am the template</h2>
+            <p>{{ age }}</p>
+            <p>{{ children }}</p>
+            <p>{{ title}}</p>
+            <p v-for="person in persons"> {{person}}</p>
+        </div>
+        <script>
+            const app = Vue.createApp({
+                // template: '<h2>I am the template</h2>',
+                data() {
+                    return {
+                        age: 37,
+                        children: 2,
+                        title: "The King in the north",
+                        persons: ["John", "Henry", "Lewis"]
 
-    </div>
+                    }
+                },
+            });
 
-    <script src="https://unpkg.com/vue@next"> </script>
-
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    age: 37,
-                    children: 2,
-                    title: "The King in the north",
-                    persons: ["John", "Henry", "Lewis"]
-
-                }
-            }
-        });
-
-        app.mount('#app');
-    </script>
+            app.mount('#app');
+        </script>
 
 
-</body>
+    </body>
 
 
 
