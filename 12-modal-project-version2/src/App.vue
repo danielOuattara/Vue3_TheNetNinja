@@ -1,17 +1,17 @@
 <template>
- <h1>{{title}}</h1>
+  <h1>{{ title }}</h1>
 </template>
 
 <script>
 
 export default {
   name: 'App',
+  components: {},
   data() {
     return {
-      title: "My first Vue App :)",
+      title: "A title for my Vue 3 application"
     }
-  },
-
+  }
 }
 </script>
 
