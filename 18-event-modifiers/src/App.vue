@@ -1,15 +1,19 @@
 <template>
-  <h1>{{title}}</h1>
-  <input type="text" ref="name">
+  <h1>{{ title }}</h1>
+  <p>
+    <input type="text" ref="name" />
+  </p>
 
-  <Modal message="Sign up here"
-         v-if="showModal"
-         text="Grab your ninja code" 
-         v-bind:list="list"
-         theme="sale"
-         @closeEvent="toggleModal"/>
-  <button @click.alt="toggleModal">Toogle Modal (alt)</button>
-
+  <Modal
+    v-if="showModal"
+    message="Sign up here"
+    text="Grab your ninja code"
+    v-bind:list="list"
+    theme="sale"
+    @closeEvent="toggleModal"
+    :toggleModal="toggleModal"
+  />
+  <button @click.shift="toggleModal">Toogle Modal (shift + click)</button>
 </template>
 
 <script>
@@ -21,23 +25,21 @@ export default {
   },
   data() {
     return {
-      title: "My first Vue App :)",
+      title: 'My first Vue App :)',
       addedClassActive: false,
-      list: ['aaa,','bbb','ccc'],
+      list: ['aaa,', 'bbb', 'ccc'],
       showModal: false,
-
     }
   },
-  methods: {   
+  methods: {
     toggleModal() {
-      this.showModal = !this.showModal;
-    }
-  }
-
+      this.showModal = !this.showModal
+    },
+  },
 }
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,7 +49,7 @@ export default {
   margin-top: 60px;
 }
 h1 {
-  border-bottom: 1px solid  #dddd;
+  border-bottom: 1px solid #dddd;
   display: inline-block;
   padding-bottom: 10px;
   color: blue;

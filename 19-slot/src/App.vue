@@ -1,19 +1,21 @@
 <template>
-  <h1>{{title}}</h1>
-  <input type="text" ref="name">
+  <h1>{{ title }}</h1>
+  <p>
+    <input type="text" ref="name" />
+  </p>
 
   <Modal v-if="showModal" theme="" @closeEvent="toggleModal">
-      <h1>Ninja !</h1>
-      <p>Show me your sword !</p>   
+    <h1>Ninja !</h1>
+    <p>Show me your sword !</p>
 
-      <template v-slot:links >
-        <a href="#">signup now</a> <br/>
+    <template v-slot:links>
+      <p>
+        <a href="#">signup now</a>
         <a href="#">more infos</a>
-        
-      </template>    
+      </p>
+    </template>
   </Modal>
   <button @click="toggleModal">Toogle Modal</button>
-
 </template>
 
 <script>
@@ -25,22 +27,20 @@ export default {
   },
   data() {
     return {
-      title: "My first Vue App :)",
+      title: 'My first Vue App :)',
       addedClassActive: false,
       showModal: false,
-
     }
   },
-  methods: {   
+  methods: {
     toggleModal() {
-      this.showModal = !this.showModal;
-    }
-  }
-
+      this.showModal = !this.showModal
+    },
+  },
 }
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -50,7 +50,7 @@ export default {
   margin-top: 60px;
 }
 h1 {
-  border-bottom: 1px solid  #dddd;
+  border-bottom: 1px solid #dddd;
   display: inline-block;
   padding-bottom: 10px;
   color: blue;
