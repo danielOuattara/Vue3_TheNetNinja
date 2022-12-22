@@ -1,11 +1,14 @@
 <template>
-<h1>{{title}}</h1>
-<input type="text" ref="name">
+  <h1>{{ title }}</h1>
+  <input type="text" ref="name" />
 
-<Modal message="Sign up here" 
-       text="Grab your ninja code" 
-       v-bind:list="list"
-       theme="sale"/>
+  <Modal
+    message="Sign up here"
+    text="Grab your ninja code"
+    :title2="title2"
+    :list="list"
+    theme="sale"
+  />
 </template>
 
 <script>
@@ -17,17 +20,17 @@ export default {
   },
   data() {
     return {
-      title: "My first Vue App :)",
+      title: 'My first Vue App :)',
+      title2: 'Your Vue App :)',
       addedClassActive: false,
-      list: ['aaa,','bbb','ccc'],
+      list: ['aaa,', 'bbb', 'ccc'],
     }
   },
-  methods: {   }
-
+  methods: {},
 }
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +40,7 @@ export default {
   margin-top: 60px;
 }
 h1 {
-  border-bottom: 1px solid  #dddd;
+  border-bottom: 1px solid #dddd;
   display: inline-block;
   padding-bottom: 10px;
   color: blue;
