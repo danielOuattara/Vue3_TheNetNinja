@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://unpkg.com/vue@next"> </script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>VueJS 3 course 7 Outputting Lists TNN</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <button @click="show=!show">Show /Hide persons direct attributes: </button>
-        <button @click="showPersons"> method:
-            <span v-if="!show">Show persons</span>
-            <span v-else>Hide persons</span>
-        </button>
+      <button @click="showPersonsList=!showPersonsList">
+        Toggle showPersonsList:
+      </button>
+      <p>showPersonsList: {{showPersonsList}}</p>
+      <ul v-show="showPersonsList">
+        <li v-for="person in persons">{{person}}</li>
+      </ul>
 
-        <p>{{show}}</p>
+      <hr />
 
-        <ul v-if="show">
-            <li v-for="person, index in persons" :key='index'> {{person}}</li>
-        </ul>
-
-        <ul v-show="show">
-            <li v-for="person in persons"> {{person}}</li>
-        </ul>
+      <button @click="showBooks">
+        method:
+        <span v-if="!showBooksList">Show books</span>
+        <span v-else>Hide books</span>
+      </button>
+      <ul v-show="showBooksList">
+        <li v-for="book in books" :key="book.id">
+          {{book.title}} genre is a {{book.genre}} book. It has {{book.pages}}
+          pages
+        </li>
+      </ul>
     </div>
 
-    <script src="https://unpkg.com/vue@next"> </script>
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    age: 37,
-                    children: 2,
-                    title: "The King in the north",
-                    persons: ["John", "Henry", "Lewis", "Danny Boy"],
-                    newTitle: "",
-                    show: true,
-                }
-            },
+      const app = Vue.createApp({
+        data() {
+          return {
+            age: 37,
+            children: 2,
+            title: 'The King in the north',
+            showPersonsList: true,
+            persons: ['John', 'Henry', 'Lewis', 'Danny Boy'],
+            newTitle: '',
+            showBooksList: true,
+            books: [
+              {
+                title: 'Name of the wind',
+                genre: 'Fantasy',
+                id: '1',
+                pages: '230',
+              },
+              {
+                title: 'The final empire',
+                genre: 'Fantasy',
+                id: '2',
+                pages: '340',
+              },
+              {
+                title: 'The long earth',
+                genre: 'Sci-Fi',
+                id: '3',
+                pages: '120',
+              },
+            ],
+          }
+        },
 
-            methods: {
-                showPersons() {
-                    return this.show = !this.show;
-                }
-            },
-        });
+        methods: {
+          showPersons() {
+            return (this.show = !this.show)
+          },
+          showBooks() {
+            return (this.showBooksList = !this.showBooksList)
+          },
+        },
+      })
 
-        app.mount('#app');
+      app.mount('#app')
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <style>
-        .box {
-            padding: 100px 0;
-            width: 400px;
-            text-align: center;
-            background: #ddd;
-            margin: 20px;
-            display: inline-block;
-        }
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
     </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://unpkg.com/vue@next"> </script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>VueJS 3 course 6 TNN</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <div id="app">
-        <br/>
-        <!-- mouse events -->
-        <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
-        <div class="box" @mouseleave="handleEvent">mouseleave</div>
-        <div class="box" @dblclick="handleEvent"> doubleclick</div>
-        <div class="box" @mousemove="handleMouseMove">position:  {{x}} - {{y}}</div>
+      <br />
+      <!-- mouse events -->
+      <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
+      <div class="box" @mouseleave="handleEvent">mouseleave</div>
+      <div class="box" @dblclick="handleEvent">doubleclick</div>
+      <div class="box" @mousemove="handleMouseMove">
+        position: {{x}} - {{y}}
+      </div>
     </div>
 
-    <script src="https://unpkg.com/vue@next"> </script>
-
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    age: 37,
-                    children: 2,
-                    title: "The King in the north",
-                    persons: ["John", "Henry", "Lewis","Danny Boy"],
-                    x: 0,
-                    y: 0,
-                }
-            },
+      const app = Vue.createApp({
+        data() {
+          return {
+            age: 37,
+            children: 2,
+            title: 'The King in the north',
+            persons: ['John', 'Henry', 'Lewis', 'Danny Boy'],
+            x: 0,
+            y: 0,
+          }
+        },
 
-            methods: {
-                incrementValue() {
-                    return this.age++
-                },
+        methods: {
+          incrementValue() {
+            return this.age++
+          },
 
-                changeTitle(arg){
-                    return this.title= arg;
-                },
-                toggleShowBooks() {},
+          changeTitle(arg) {
+            return (this.title = arg)
+          },
+          toggleShowBooks() {},
 
-                handleEvent(event, data) {
-                    console.log(event, event.type)
-                    if(data) {
-                        console.log(data)
-                    }
+          handleEvent(event, data) {
+            console.log(event, event.type)
+            if (data) {
+              console.log(data)
+            }
+          },
+          handleMouseMove(event) {
+            this.x = event.offsetX
+            this.y = event.offsetY
+          },
+        },
+      })
 
-                },
-                handleMouseMove(event) {
-                    this.x = event.offsetX
-                    this.y = event.offsetY
-
-                }
-            },
-        });
-
-        app.mount('#app');
+      app.mount('#app')
     </script>
-</body>
-
+  </body>
 </html>

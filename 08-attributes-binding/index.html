@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      img {
+        padding: 100px 0;
+        max-width: 300px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      ul {
+        text-decoration: none;
+        list-style-type: none;
+      }
+
+      li {
+        border: 1px solid grey;
+        padding: 20px;
+        margin: 20px;
+        max-width: 350px;
+      }
+    </style>
+    <!-- <script src="https://unpkg.com/vue@next"> </script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>VueJS 3 course 8 TNN</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <a v-bind:href="url">web site A</a>
-        <a :href="url">web site B</a>
+      <p><a v-bind:href="url">web site A</a></p>
+      <p><a :href="url">web site B</a></p>
 
-        <ul>
-            <li v-for="book in books">
-                <img :src="book.img" :alt="book.title + ' ' + book.author">
-                <h2> {{book.title}}</h2>
-                <p> by {{book.author}}</p>
-            </li>
-        </ul>
+      <ul>
+        <li v-for="book in books">
+          <img :src="book.img" :alt="book.title + ' ' + book.author" />
+          <h2>{{book.title}}</h2>
+          <p>by {{book.author}}</p>
+        </li>
+      </ul>
     </div>
 
-    <script src="https://unpkg.com/vue@next"> </script>
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    url: "https://www.w3schools.com/js/default.asp",
-                    books: [
-                        {title:'name of the wind', author:'patick rothuss', img: './assets/1.jpg', isFav: true},
-                        {title:'ladys', author:'Mr. Mousso', img: './assets/2.jpg', isFav: false},
-                        {title:'wind of the sun', author:'sun yui tché', img: './assets/"".jpg', isFav: true},
-                    ]
-                }
-            },
+      const app = Vue.createApp({
+        data() {
+          return {
+            url: 'https://www.w3schools.com/js/default.asp',
+            books: [
+              {
+                title: 'name of the wind',
+                author: 'Patick Rothuss',
+                img: './assets/1.jpg',
+                isFav: true,
+              },
+              {
+                title: 'ladys',
+                author: 'Mr.Mousso',
+                img: './assets/2.jpg',
+                isFav: false,
+              },
+              {
+                title: 'wind of the sun',
+                author: 'Sun Yui Tché',
+                img: './assets/3.jpg',
+                isFav: true,
+              },
+            ],
+          }
+        },
 
-            methods: {
-                showPersons() {
-                    return this.show = !this.show;
-                }
-            },
-        });
+        methods: {
+          showPersons() {
+            return (this.show = !this.show)
+          },
+        },
+      })
 
-        app.mount('#app');
+      app.mount('#app')
     </script>
-</body>
-
+  </body>
 </html>
