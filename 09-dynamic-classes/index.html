@@ -55,7 +55,7 @@
         <li
           v-for="book, index in books"
           :key="index"
-          :class="{favorite:book.isFav}"
+          :class="{favorite:book.isFavorite}"
         >
           <img :src="book.img" :alt="book.title + ' ' + book.author" />
           <h2>{{book.title}}</h2>
@@ -74,19 +74,19 @@
                 title: 'name of the wind',
                 author: 'patick rothuss',
                 img: './assets/1.jpg',
-                isFav: true,
+                isFavorite: true,
               },
               {
                 title: 'ladys',
                 author: 'Mr. Mousso',
                 img: './assets/2.jpg',
-                isFav: false,
+                isFavorite: false,
               },
               {
                 title: 'wind of the sun',
                 author: 'sun yui tché',
                 img: './assets/3.jpg',
-                isFav: true,
+                isFavorite: true,
               },
             ],
           }
