@@ -17,26 +17,26 @@
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
   data() {
     return {
-      title: 'My first Vue App :)',
+      title: "My first Vue App :)",
       addedClassActive: false,
-      list: ['aaa,', 'bbb', 'ccc'],
+      list: ["aaa,", "bbb", "ccc"],
       showModal: false,
-    }
+    };
   },
   methods: {
     toggleModal() {
-      this.showModal = !this.showModal
+      this.showModal = !this.showModal;
     },
   },
-}
+};
 </script>
 
 <style>

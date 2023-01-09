@@ -2,14 +2,11 @@
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>Modal title</h1>
-      <span @click="this.toggleModal()">&times</span>
       <p>modal content</p>
       <h2>{{ this.message }}</h2>
       <p>{{ this.text }}</p>
       <p>{{ list }}</p>
-      <p>
-        <button @click="showFunction">Show details</button>
-      </p>
+
       <p>
         <button @click="sayHello('John')">Salutation</button>
       </p>
@@ -19,20 +16,16 @@
 
 <script>
 export default {
-  props: ['message', 'text', 'list', 'theme', 'toggleModal'],
+  props: ["message", "text", "list", "theme"],
   methods: {
     closeModal() {
-      this.$emit('closeEvent')
-    },
-
-    showFunction() {
-      console.log(this.toggleModal.toString())
+      this.$emit("closeEvent");
     },
     sayHello(name) {
-      console.log(` Hello ${name}`)
+      console.log(` Hello ${name}`);
     },
   },
-}
+};
 </script>
 
 <style>
