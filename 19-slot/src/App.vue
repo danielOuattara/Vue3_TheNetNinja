@@ -4,7 +4,7 @@
     <input type="text" ref="name" />
   </p>
 
-  <Modal v-if="showModal" theme="" @closeEvent="toggleModal">
+  <Modal v-if="showModal" theme="sale" @closeEvent="toggleModal">
     <h1>Ninja !</h1>
     <p>Show me your sword !</p>
 
@@ -19,25 +19,25 @@
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
   data() {
     return {
-      title: 'My first Vue App :)',
+      title: "My first Vue App :)",
       addedClassActive: false,
       showModal: false,
-    }
+    };
   },
   methods: {
     toggleModal() {
-      this.showModal = !this.showModal
+      this.showModal = !this.showModal;
     },
   },
-}
+};
 </script>
 
 <style>
