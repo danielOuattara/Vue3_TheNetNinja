@@ -1,9 +1,11 @@
-
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 22px;
 }

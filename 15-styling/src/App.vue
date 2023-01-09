@@ -1,14 +1,12 @@
 <template>
-<h1>{{title}}</h1>
-<input type="text" ref="name">
-
-<Modal />
+  <h1>{{ title }}</h1>
+  <Modal />
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
@@ -16,14 +14,13 @@ export default {
     return {
       title: "My first Vue App :)",
       addedClassActive: false,
-    }
+    };
   },
-  methods: {   }
-
-}
+  methods: {},
+};
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,7 +30,7 @@ export default {
   margin-top: 60px;
 }
 h1 {
-  border-bottom: 1px solid  #dddd;
+  border-bottom: 1px solid #dddd;
   display: inline-block;
   padding-bottom: 10px;
   color: blue;
