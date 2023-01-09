@@ -6,39 +6,45 @@
   </p>
 
   <Modal
-    v-if="showModal"
+    v-show="showModal"
     message="Sign up here"
     text="Grab your ninja code"
     v-bind:list="list"
     theme="sale"
-    @closeEvent="toggleModal"
+    @closeModal="toggleModal"
+    @shutModal="toggleModal"
     :toggleModal="toggleModal"
+    :list="list"
+    :sayHello="sayHello"
   />
   <p>Welcome !</p>
-  <button @click="toggleModal">Toggle showModal</button>
+  <button @click="this.toggleModal">Toggle showModal</button>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
   data() {
     return {
-      title: 'My first Vue App :)',
+      title: "My first Vue App :)",
       addedClassActive: false,
-      list: ['aaa,', 'bbb', 'ccc'],
+      list: ["aaa,", "bbb", "ccc"],
       showModal: false,
-    }
+    };
   },
   methods: {
     toggleModal() {
-      this.showModal = !this.showModal
+      this.showModal = !this.showModal;
+    },
+    sayHello() {
+      console.log("Hello Every body");
     },
   },
-}
+};
 </script>
 
 <style>

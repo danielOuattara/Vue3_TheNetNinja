@@ -1,28 +1,41 @@
 <template>
-  <div class="backdrop" @click="closeModal_1">
+  <div class="backdrop" @click="this.closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>Modal title</h1>
-      <span @click="closeModal_2">&times</span>
+      <span class="close1" type="button" @click="this.toggleModal"
+        >&times1</span
+      >
+      <span class="close2" @click="this.shutModal">&times2</span>
       <p>modal content</p>
       <h2>{{ this.message }}</h2>
       <p>{{ this.text }}</p>
-      <p>{{ list }}</p>
+      <ul>
+        <li v-for="item in this.list" :key="item">{{ item }}</li>
+      </ul>
+      <button @click="sayHello">Say Hello</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['message', 'text', 'list', 'theme', 'toggleModal'],
+  props: {
+    message: String,
+    text: String,
+    list: Array,
+    theme: String,
+    toggleModal: Function,
+    sayHello: Function,
+  },
   methods: {
-    closeModal_1() {
-      this.$emit('closeEvent')
+    closeModal() {
+      this.$emit("closeModal");
     },
-    closeModal_2() {
-      this.toggleModal()
+    shutModal() {
+      this.$emit("shutModal");
     },
   },
-}
+};
 </script>
 
 <style>
@@ -43,18 +56,22 @@ export default {
   /* top: 40%; */
   /* left: 30% */
 }
-span {
+.close1,
+.close2 {
   cursor: pointer;
   position: fixed;
-  top: 12.75rem;
-  right: 22.75rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   width: 30px;
-}
-span:hover {
-  border: 1px solid grey;
-  /* padding: -3px; */
+  border: 1px solid rgb(56, 56, 56);
   border-radius: 5px;
+}
+.close1 {
+  top: 12.75rem;
+  right: 23.75rem;
+}
+.close2 {
+  top: 12.75rem;
+  right: 20.75rem;
 }
 
 .modal h1 {
