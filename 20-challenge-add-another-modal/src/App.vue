@@ -1,61 +1,54 @@
 <template>
-  <h1>{{title}}</h1> <br>
+  <h1>{{ title }}</h1>
 
+  <Modal v-show="showModal" theme="sale" @closeEvent="toggleModal">
+    <h1>Ninja 1 !</h1>
+    <p>Show me your sword !</p>
 
-  <Modal v-if="showModal" theme="" @closeEvent="toggleModal">
-      <h1>Ninja !</h1>
-      <p>Show me your sword !</p>   
-
-      <template v-slot:links >
-        <a href="#">signup now</a> <br/>
+    <template v-slot:links>
+      <p>
+        <a href="#">signup now</a>
         <a href="#">more infos</a>
-        
-      </template>    
+      </p>
+    </template>
   </Modal>
-  <button @click="toggleModal">Toogle Modal</button> <br>
+  <p><button @click="toggleModal">Toogle Modal</button> <br /></p>
 
-  <Modal v-if="showModal2" theme="" @closeEvent="toggleModal2">
-      <h1>Ninja 2 !</h1>
-      <p>Show me your stars !</p>   
-
-      <template v-slot:links >
-        <a href="#">signup now</a> <br/>
-        <a href="#">more infos</a>
-        
-      </template>    
+  <Modal v-show="showModal2" theme="sale" @closeEvent="toggleModal2">
+    <h1>Ninja 2 !</h1>
+    <p>Show me your stars !</p>
   </Modal>
-  <button @click="toggleModal2">Toogle Modal 2</button>
-
+  <p>
+    <button @click="toggleModal2">Toogle Modal 2</button>
+  </p>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
   data() {
     return {
       title: "My first Vue App :)",
-      addedClassActive: false,
       showModal: false,
       showModal2: false,
-    }
+    };
   },
-  methods: {   
+  methods: {
     toggleModal() {
       this.showModal = !this.showModal;
     },
     toggleModal2() {
       this.showModal2 = !this.showModal2;
-    }
-  }
-
-}
+    },
+  },
+};
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -65,7 +58,7 @@ export default {
   margin-top: 60px;
 }
 h1 {
-  border-bottom: 1px solid  #dddd;
+  border-bottom: 1px solid #dddd;
   display: inline-block;
   padding-bottom: 10px;
   color: blue;
