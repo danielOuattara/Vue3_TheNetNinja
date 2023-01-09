@@ -3,31 +3,31 @@
   <input type="text" ref="name" />
 
   <Modal
+    :title2="title2"
     message="Sign up here"
     text="Grab your ninja code"
-    :title2="title2"
     :list="list"
     theme="sale"
   />
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Modal,
   },
   data() {
     return {
-      title: 'My first Vue App :)',
-      title2: 'Your Vue App :)',
+      title: "My first Vue App :)",
+      title2: "Your Vue App :)",
       addedClassActive: false,
-      list: ['aaa,', 'bbb', 'ccc'],
-    }
+      list: ["aaa,", "bbb", "ccc"],
+    };
   },
   methods: {},
-}
+};
 </script>
 
 <style>

@@ -1,11 +1,11 @@
 <template>
   <div class="backdrop" ref="backdrop" @click="handleBackdrop">
     <div class="modal" :class="{ saleStyle: theme === 'sale' }">
-      <h1>{{ title2 }}</h1>
+      <h1>{{ this.title2 }}</h1>
       <span @click="handleBackdrop">&times</span>
       <p>modal content</p>
       <h2>{{ this.message }}</h2>
-      <p>{{ text }}</p>
+      <p>{{ this.text }}</p>
       <p>{{ list }}</p>
     </div>
   </div>
@@ -13,13 +13,13 @@
 
 <script>
 export default {
-  props: ['message', 'title', 'title2', 'text', 'list', 'theme'],
+  props: ["message", "title", "title2", "text", "list", "theme"],
   methods: {
     handleBackdrop() {
-      this.$refs.backdrop.remove()
+      this.$refs.backdrop.remove();
     },
   },
-}
+};
 </script>
 
 <style>
