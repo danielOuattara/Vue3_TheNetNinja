@@ -1,29 +1,30 @@
 <template>
-<h1>{{title}}</h1>
-<input type="text" ref="name">
-<button @click="handleClick">Click Me</button>
+  <h1>{{ title }}</h1>
+  <input type="text" ref="firstName" />
+  <input type="text" ref="lastName" />
+  <button @click="handleClick">Click to Add Class</button>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       title: "My first Vue App :)",
       addedClassActive: false,
-    }
+    };
   },
   methods: {
     handleClick() {
-      console.log(this.$refs.name);
+      console.log(this.$refs);
+      console.log(this.$refs.lastName);
       this.addedClassActive = !this.addedClassActive;
-      this.$refs.name.classList.add('active')
-      // this.$refs.name.classList.toggle('active')
-      this.$refs.name.focus();
-    }
-  }
-}
+      // this.$refs.lastName.classList.add("active");
+      this.$refs.lastName.classList.toggle("active");
+      this.$refs.firstName.focus();
+    },
+  },
+};
 </script>
 
 <style>

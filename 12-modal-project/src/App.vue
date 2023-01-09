@@ -1,18 +1,16 @@
 <template>
- <h1>{{title}}</h1>
+  <h1>{{ title }}</h1>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       title: "My first Vue App :)",
-    }
+    };
   },
-
-}
+};
 </script>
 
 <style>
@@ -26,7 +24,9 @@ export default {
 }
 h1 {
   border-bottom: 1px solid #ddd;
+  border-bottom-color: blue;
   display: inline-block;
   padding-bottom: 10px;
+  color: green;
 }
 </style>
