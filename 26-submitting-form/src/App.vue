@@ -1,28 +1,28 @@
 <template>
-  <h1>{{title}}</h1> <br>
-  <SignUpForm/>
+  <h1>{{ title }}</h1>
+  <br />
+  <SignUpForm />
 </template>
 
 <script>
-import SignUpForm from './components/SiginUpForm.vue';
+import SignUpForm from "./components/SiginUpForm.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     SignUpForm,
   },
   data() {
     return {
       title: "Vuejs 3 Forms & Inputs !",
-    }
+    };
   },
-  methods: {   
-    
-  }
-}
+  methods: {},
+};
 </script>
 
-<style >
-#app, .modals {
+<style>
+#app,
+.modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,8 +33,6 @@ export default {
 
 body {
   margin: 0;
-  background: #EEE;
+  background: #eee;
 }
-
-
 </style>
