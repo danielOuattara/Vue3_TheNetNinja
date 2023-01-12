@@ -9,7 +9,7 @@
       required
       v-model="password"
       id="password"
-      name="passord"
+      name="password"
     />
 
     <label for="role">Role : </label>
@@ -17,6 +17,7 @@
       <option value=""> Select</option>
       <option value="web-developper"> Web Developer</option>
       <option value="web-designer"> Web Designer</option>
+      <option value="backend-developper"> Backend Developer</option>
     </select>
 
     <div class="terms">
@@ -64,14 +65,13 @@
       type="text"
       name="skills"
       id="skills"
-      v-model="tempSkill"
+      v-model.trim.lazy="tempSkill"
       @keyup="addSkill"
     />
-
-    <div v-for="skill in skills" :key="skill" class="pill">
-      {{ skill }}
-    </div>
   </form>
+  <div v-for="skill in skills" :key="skill" class="pill">
+    {{ skill }}
+  </div>
 </template>
 
 <script>
@@ -91,12 +91,18 @@ export default {
 
   methods: {
     addSkill(event) {
-      // console.log(event)
-      if (event.key === "," && this.tempSkill) {
+      console.log(event);
+      if (
+        (event.key === "Enter" ||
+          event.key === "," ||
+          event.key === " " ||
+          event.key === "Tab") &&
+        this.tempSkill
+      ) {
         if (!this.skills.includes(this.tempSkill)) {
           this.skills.push(this.tempSkill);
-          this.tempSkill = "";
         }
+        this.tempSkill = "";
       }
     },
   },
