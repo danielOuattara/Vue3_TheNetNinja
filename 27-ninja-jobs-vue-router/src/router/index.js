@@ -1,14 +1,26 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "./../views/Home.vue";
-import About from "./../views/About.vue";
-import Jobs from "./../views/jobs/Jobs.vue";
-import JobDetails from "./../views/jobs/JobDetails.vue";
+import HomeView from "./../views/HomeView.vue";
+import AboutView from "./../views/AboutView.vue";
+import JobsView from "./../views/jobs/JobsView.vue";
+import JobDetailsView from "./../views/jobs/JobDetailsView.vue";
+import NotFoundView from "./../views/NotFoundView.vue";
 
 const routes = [
-  { path: "/home", name: "Home", component: Home },
-  { path: "/about", name: "About", component: About },
-  { path: "/jobs", name: "Jobs", component: Jobs },
-  { path: "/jobs/:id", name: "JobDetails", component: JobDetails, props: true },
+  { path: "/home", name: "Home", component: HomeView },
+  { path: "/about", name: "About", component: AboutView },
+  { path: "/jobs", name: "Jobs", component: JobsView },
+  {
+    path: "/jobs/:id",
+    name: "JobDetails",
+    component: JobDetailsView,
+    props: true,
+  },
+
+  //redirect
+  { path: "/old-jobs", redirect: "/jobs" },
+
+  //Not Found 404
+  { path: "/:catchAll(.*)", name: "NotFound", component: NotFoundView },
 ];
 
 const router = createRouter({

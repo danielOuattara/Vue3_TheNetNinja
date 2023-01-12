@@ -1,4 +1,4 @@
-# 27-ninja-jobs-vue-router
+# 28-ninja-jobs-vue-router
 
 ## Project setup
 ```
@@ -13,11 +13,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration
