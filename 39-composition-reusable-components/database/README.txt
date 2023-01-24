@@ -1,0 +1,1 @@
+npx json-server --watch database/data.json --port 8000
