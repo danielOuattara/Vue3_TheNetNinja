@@ -14,7 +14,7 @@ export default {
     let age = 39;
 
     function handleClick() {
-      console.log("You clicked !");
+      console.log("You clicked !", name, age);
     }
 
     return { name, age, handleClick };
