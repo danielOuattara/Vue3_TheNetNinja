@@ -16,6 +16,7 @@ export default {
   setup() {
     const p_ref = ref(null);
     console.log("p_ref (initial) = ", p_ref);
+    console.log("p_ref (initial value) = ", p_ref.value);
 
     const name = "Daniel";
     const age = 39;
