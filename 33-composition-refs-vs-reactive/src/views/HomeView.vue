@@ -2,13 +2,13 @@
   <div class="home">
     <h1>Home</h1>
     <p>My name is {{ ninjaOne.name }} and my age is {{ ninjaOne.age }}</p>
-    <button @click="udpateNinjaOne">Update Ninja One</button>
+    <button @click="updateNinjaOne">Update Ninja One</button>
 
     <br />
     <hr />
 
     <p>My name is {{ ninjaTwo.name }} and my age is {{ ninjaTwo.age }}</p>
-    <button @click="udpateNinjaTwo">Update Ninja Two</button>
+    <button @click="updateNinjaTwo">Update Ninja Two</button>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     const ninjaOne = ref({ name: "Mario", age: 30 });
     console.log("ninjaOne = ", ninjaOne);
 
-    function udpateNinjaOne() {
+    function updateNinjaOne() {
       return (ninjaOne.value.age = 40);
     }
 
@@ -33,13 +33,13 @@ export default {
     const ninjaTwo = reactive({ name: "Luigi", age: 28 });
     console.log("ninjaTwo = ", ninjaTwo);
 
-    function udpateNinjaTwo() {
+    function updateNinjaTwo() {
       return (ninjaTwo.age = 30);
     }
 
     //--------------------------------
 
-    return { ninjaOne, udpateNinjaOne, ninjaTwo, udpateNinjaTwo };
+    return { ninjaOne, updateNinjaOne, ninjaTwo, updateNinjaTwo };
   },
 };
 </script>
